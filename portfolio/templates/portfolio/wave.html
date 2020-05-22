@@ -1,0 +1,37 @@
+{% extends 'portfolio/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josh's Portfolio</title>
+</head>
+
+{% block content %}
+
+<body>
+    <img src=" {% static '/portfolio/me.jpeg' %}">
+    
+
+    
+
+   <h1>Joshua Matlack</h1>
+    {% for project in projects%}
+
+        <h3>{{ project.title }}</h3>
+        <img src="{{ project.image.url }}" alt="">
+        <p>{{ project.description }}</p>
+        {% if project.url %}
+            <a href="{{ project.url }}"> link </a>
+        {% endif %}
+
+    {% endfor %}
+    
+    
+</body>
+
+{% endblock %}
+</html>
